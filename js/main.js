@@ -24,7 +24,7 @@ container.appendChild(table)
                 box.classList.add('column')
                 box.addEventListener('click', function(){
                     this.classList.toggle("bg-color")
-                    console.log(numberGrid)
+                    console.log(this.innerText)
                 })
                 cnt++  
             }
