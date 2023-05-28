@@ -1,12 +1,15 @@
 "use strict"
+// CREO UN CONTENITORE PER LA GRIGLIA NELL'HTML
+let container = document.createElement("div")
+container.setAttribute('class', 'container mt-5')
+document.body.appendChild(container);
+
+// CREO UNA TABELLA NEL CONTENITORE PER LA GRIGLIA
+let table = document.createElement("table")
+container.appendChild(table)
     
-// CREO LA FUNZIONE CHE GENERA LA GRIGLIA
+// CREO LA FUNZIONE CHE GENERA LA GRIGLIA NEL CONTENITORE
     function grid(caselle){
-        let container = document.createElement("div")
-        container.setAttribute('class', 'container mt-5')
-        document.body.appendChild(container);
-        let table = document.createElement("table")
-        container.appendChild(table)
         let cnt = 1;
         for(let i = 0; i<caselle; i++){
             let row = document.createElement("tr")
@@ -14,14 +17,14 @@
             for(let j = 0; cnt<=10, j<caselle; j++){
                 let column = document.createElement("td")
                 row.appendChild(column)
-                let columnText = document.createTextNode(`${cnt}`)
-                let div = document.createElement("div")
-                column.appendChild(div)
-                div.appendChild(columnText)
-                div.setAttribute('class', 'column ')
-                div.addEventListener('click', function(){
-                    this.classList.toggle("column")
-                    console.log(this)
+                let box = document.createElement("div")
+                column.appendChild(box)
+                let numberGrid = document.createTextNode(`${cnt}`)
+                box.appendChild(numberGrid)
+                box.classList.add('column')
+                box.addEventListener('click', function(){
+                    this.classList.toggle("bg-color")
+                    console.log(numberGrid)
                 })
                 cnt++  
             }
@@ -31,6 +34,7 @@
 // CREO L'EVENTO CHE MI GENERA LA GRIGLIA IN BASE AL LIVELLO DI DIFFICOLTA' 
 let button = document.querySelector(".play")
 button.addEventListener('click', function(){
+    container.classList.remove("inactive")
    let select = document.querySelector(".form-select").value
    if(select == 3){
     grid(7)
@@ -43,6 +47,8 @@ button.addEventListener('click', function(){
    }
 })
 
+// CREO L'EVENTO CHE RESETTA LA GRIGLIA 
 let reset = document.querySelector(".reset")
 reset.addEventListener('click', function(){
+  container.classList.add("inactive")
 })

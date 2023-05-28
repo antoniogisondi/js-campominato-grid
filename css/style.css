@@ -9,8 +9,17 @@ body{
 }
 
 .column{
-    width: 70px;
-    height: 70px;
+    font-size: 25px;
+    transform: scale(0.9);
+    width: 120px;
+    height: 120px;
     border: 1px solid black;
+}
+
+.bg-color{
     background-color: rgb(8, 119, 188);
+}
+
+.inactive{
+    display: none;
 }
