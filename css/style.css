@@ -19,7 +19,3 @@ body{
 .bg-color{
     background-color: rgb(8, 119, 188);
 }
-
-.inactive{
-    display: none;
-}
